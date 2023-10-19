@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpEngine.Shaders", "SharpEngine.Shaders\SharpEngine.Shaders.csproj", "{2237EA94-40A6-45D8-826A-6AC30349D5E2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Testing", "Testing\Testing.csproj", "{20128E7A-7B6E-4BBF-A7A1-733748B5FECD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2237EA94-40A6-45D8-826A-6AC30349D5E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2237EA94-40A6-45D8-826A-6AC30349D5E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2237EA94-40A6-45D8-826A-6AC30349D5E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2237EA94-40A6-45D8-826A-6AC30349D5E2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{20128E7A-7B6E-4BBF-A7A1-733748B5FECD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{20128E7A-7B6E-4BBF-A7A1-733748B5FECD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{20128E7A-7B6E-4BBF-A7A1-733748B5FECD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{20128E7A-7B6E-4BBF-A7A1-733748B5FECD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
