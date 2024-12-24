@@ -56,7 +56,7 @@ public static class OutlineShader
     /// <param name="size">Texture Size</param>
     public static void SetTextureSize(this Shader shader, Vec2 size) =>
         Raylib.SetShaderValue(shader, Raylib.GetShaderLocation(shader, "textureSize"), (Vector2)size,
-            ShaderUniformDataType.SHADER_UNIFORM_VEC2);
+            ShaderUniformDataType.Vec2);
 
     /// <summary>
     /// Define Outline Size for Outline Shader
@@ -65,7 +65,7 @@ public static class OutlineShader
     /// <param name="size">Outline Size</param>
     public static void SetOutlineSize(this Shader shader, float size) =>
         Raylib.SetShaderValue(shader, Raylib.GetShaderLocation(shader, "outlineSize"), size,
-            ShaderUniformDataType.SHADER_UNIFORM_FLOAT);
+            ShaderUniformDataType.Float);
 
     /// <summary>
     /// Define Outline Color for Outline Shader
@@ -74,6 +74,6 @@ public static class OutlineShader
     /// <param name="color">Outline Color</param>
     public static void SetOutlineColor(this Shader shader, Color color) =>
         Raylib.SetShaderValue(shader, Raylib.GetShaderLocation(shader, "outlineColor"), color.ToVec4(),
-            ShaderUniformDataType.SHADER_UNIFORM_VEC4);
+            ShaderUniformDataType.Vec4);
 
 }

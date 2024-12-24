@@ -11,10 +11,7 @@ internal static class Program
     {
         SEShaders.AddVersions();
         
-        var window = new Window(1280, 920, "SE Shaders", Color.CornflowerBlue, null, true, true, true)
-        {
-            RenderImGui = DebugManager.CreateSeImGuiWindow
-        };
+        var window = new Window(1280, 920, "SE Shaders", Color.CornflowerBlue, null, true, true, true);
         
         window.AddScene(new MyScene());
         
