@@ -1,6 +1,9 @@
+using System.Drawing;
 using System.Numerics;
 using Raylib_cs;
+using SharpEngine.Core.Manager;
 using SharpEngine.Core.Math;
+using SharpEngine.Core.Utils;
 using Color = SharpEngine.Core.Utils.Color;
 
 namespace SharpEngine.Shaders.Shaders;
@@ -8,8 +11,60 @@ namespace SharpEngine.Shaders.Shaders;
 /// <summary>
 /// Class which represents Outline shader
 /// </summary>
-public static class OutlineShader
+public class OutlineShader: SEShader
 {
+    /// <summary>
+    /// Size of texture in shader
+    /// </summary>
+    public Vec2 TextureSize
+    {
+        get => _textureSize;
+        set
+        {
+            _textureSize = value;
+            Raylib.SetShaderValue(internalShader, Raylib.GetShaderLocation(internalShader, "textureSize"), (Vector2)value,
+                ShaderUniformDataType.Vec2);
+        }
+    }
+
+    /// <summary>
+    /// Size of outline in shader
+    /// </summary>
+    public float OutlineSize
+    {
+        get => _outlineSize;
+        set
+        {
+            _outlineSize = value;
+            Raylib.SetShaderValue(internalShader, Raylib.GetShaderLocation(internalShader, "outlineSize"), value,
+                ShaderUniformDataType.Float);
+        }
+    }
+
+    /// <summary>
+    /// Color of outline in shader
+    /// </summary>
+    public Color OutlineColor
+    {
+        get => _outlineColor;
+        set
+        {
+            _outlineColor = value;
+            Raylib.SetShaderValue(internalShader, Raylib.GetShaderLocation(internalShader, "outlineColor"), value.ToVec4(),
+                ShaderUniformDataType.Vec4);
+        }
+    }
+
+    private Vec2 _textureSize;
+    private float _outlineSize;
+    private Color _outlineColor;
+
+    /// <summary>
+    /// Create Outline Shader
+    /// </summary>
+    public OutlineShader(): base(null, FragmentShader) { }
+
+
     private const string FragmentShader = """
 
                                            #version 330
@@ -42,38 +97,5 @@ public static class OutlineShader
                                                finalColor = mix(color, texel, texel.a);
                                            }
                                            """;
-
-    /// <summary>
-    /// Get Loaded Outline Shader
-    /// </summary>
-    /// <returns>Loaded Shader</returns>
-    public static Shader GetShader() => Raylib.LoadShaderFromMemory("", FragmentShader);
-
-    /// <summary>
-    /// Define Texture Size for Outline Shader
-    /// </summary>
-    /// <param name="shader">Outline Shader</param>
-    /// <param name="size">Texture Size</param>
-    public static void SetTextureSize(this Shader shader, Vec2 size) =>
-        Raylib.SetShaderValue(shader, Raylib.GetShaderLocation(shader, "textureSize"), (Vector2)size,
-            ShaderUniformDataType.Vec2);
-
-    /// <summary>
-    /// Define Outline Size for Outline Shader
-    /// </summary>
-    /// <param name="shader">Outline Shader</param>
-    /// <param name="size">Outline Size</param>
-    public static void SetOutlineSize(this Shader shader, float size) =>
-        Raylib.SetShaderValue(shader, Raylib.GetShaderLocation(shader, "outlineSize"), size,
-            ShaderUniformDataType.Float);
-
-    /// <summary>
-    /// Define Outline Color for Outline Shader
-    /// </summary>
-    /// <param name="shader">Outline Shader</param>
-    /// <param name="color">Outline Color</param>
-    public static void SetOutlineColor(this Shader shader, Color color) =>
-        Raylib.SetShaderValue(shader, Raylib.GetShaderLocation(shader, "outlineColor"), color.ToVec4(),
-            ShaderUniformDataType.Vec4);
 
 }

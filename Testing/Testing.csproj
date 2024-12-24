@@ -11,4 +11,10 @@
       <ProjectReference Include="..\SharpEngine.Shaders\SharpEngine.Shaders.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <None Update="Resource\Food.png">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
+    </ItemGroup>
+
 </Project>
